@@ -9,7 +9,7 @@ placeHolder,5,placeHolder,placeHolder,
 
 
 new = Board(board)
-print(new.__update2dBoard__())
-print(new.__updateBoard__())
+new.listPrint()
+new.tileRight()
 
 
