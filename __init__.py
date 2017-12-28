@@ -9,4 +9,7 @@ placeHolder,5,placeHolder,placeHolder,
 
 
 new = Board(board)
-print(Board.getBoard2d(new))
+print(new.__update2dBoard__())
+print(new.__updateBoard__())
+
+
