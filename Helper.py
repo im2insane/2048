@@ -46,6 +46,8 @@ class Helper:
                         break
                     else:
                         pos += 4
+        #TODO: add calculations when tile is moved up
+        print("Translation Done")
         return lst
 
     def tileDown(self,lst):
@@ -58,6 +60,8 @@ class Helper:
                         break
                     else:
                         pos -= 4
+        # TODO: add calculations when tile is moved Down
+        print("Translation Done")
         return lst
 
     def tileRight(self,lst):
@@ -73,4 +77,23 @@ class Helper:
                         pos -= 1
                         iterations -= 1
 
+        # TODO: add calculations when tile is moved Right
+        print("Translation Done")
+        return lst
+
+    def tileLeft(self,lst):
+        for i in range(0, len(lst), 4):
+            temp = lst[i:i + 4]
+            for j in range(0, len(temp)):
+                if temp[j] == 0:
+                    pos = j + 1
+                    while pos < len(temp):
+                        if temp[pos] != 0:
+                            temp = self.swap(j, pos, temp)
+                            break
+                        else:
+                            pos += 1
+            lst[i:i + 4] = temp
+        # TODO: add calculations when tile is moved left
+        print("Translation Done")
         return lst
