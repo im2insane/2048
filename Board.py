@@ -28,10 +28,29 @@ class Board:
         print("updated Board")
         self.__helper.printLst(self.__board)
 
+    def calcUp(self):
+        lst = self.__board2d
+        print("Clac Up")
+        for i in range(0,len(lst)):
+            for j in range(1,len(lst)):
+                print(lst[i][j],end=" ")
+            print()
+        pass
+
+    def calcDown(self):
+        pass
+
+    def calcLeft(self):
+        pass
+
+    def calcRight(self):
+        pass
+
     def tileUp(self):
         self.__board = self.__helper.tileUp(self.__board)
         print("moved Tile Up")
         self.update2dBoard()
+        self.calcUp()
 
     def tileDown(self):
         self.__board = self.__helper.tileDown(self.__board)

@@ -10,9 +10,9 @@ placeHolder,5,placeHolder,2,
 
 new = Board(board)
 new.listPrint()
-new.tileLeft()
-new.tileRight()
+#new.tileLeft()
+#new.tileRight()
 new.tileUp()
-new.tileDown()
+#new.tileDown()
 
 
