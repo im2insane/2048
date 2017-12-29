@@ -1,6 +1,7 @@
 import numpy as np
 import itertools
 from Helper import Helper
+import random
 
 class Board:
     def __init__(self,lst):
@@ -11,6 +12,9 @@ class Board:
 
     def listPrint(self):
         self.__helper.printLst(self.__board)
+
+    def addNum(self):
+        #TODO
 
     def getBoard(self):
         return self.__board
@@ -31,20 +35,54 @@ class Board:
     def calcUp(self):
         lst = self.__board2d
         print("Clac Up")
-        for i in range(0,len(lst)):
-            for j in range(1,len(lst)):
-                print(lst[i][j],end=" ")
-            print()
-        pass
+        for i in range(1,len(lst)):
+            for j in range(0,len(lst)):
+                if(lst[i-1][j] == lst[i][j] and lst[i-1][j] != 0 and lst[i][j] != 0):
+                    lst[i-1][j] = lst[i][j]*2
+                    lst[i][j] = 0
+        self.__board2d = lst
+        self.updateBoard()
+        self.__board = self.__helper.tileUp(self.__board)
+        self.update2dBoard()
 
     def calcDown(self):
-        pass
+        lst = self.__board2d
+        print("Clac down")
+        for i in range(2,-1,-1):
+            for j in range(0,len(lst)):
+                if(lst[i+1][j] == lst[i][j] and lst[i+1][j] != 0 and lst[i][j] != 0):
+                    lst[i+1][j] = lst[i][j]*2
+                    lst[i][j] = 0
+        self.__board2d = lst
+        self.updateBoard()
+        self.__board = self.__helper.tileDown(self.__board)
+        self.update2dBoard()
 
     def calcLeft(self):
-        pass
+        lst = self.__board2d
+        print("Clac Left")
+        for i in range(0,len(lst)):
+            for j in range(1,len(lst)):
+                if(lst[i][j-1] == lst[i][j] and lst[i][j-1] != 0 and lst[i][j] != 0):
+                    lst[i][j-1] = lst[i][j]*2
+                    lst[i][j] = 0
+        self.__board2d = lst
+        self.updateBoard()
+        self.__board = self.__helper.tileLeft(self.__board)
+        self.update2dBoard()
 
     def calcRight(self):
-        pass
+        lst = self.__board2d
+        print("Clac Right")
+        for i in range(0,len(lst)):
+            for j in range(2,-1,-1):
+                if(lst[i][j+1] == lst[i][j] and lst[i][j+1] != 0 and lst[i][j] != 0):
+                    lst[i][j+1] = lst[i][j]*2
+                    lst[i][j] = 0
+        self.__board2d = lst
+        self.updateBoard()
+        self.__board = self.__helper.tileRight(self.__board)
+        self.update2dBoard()
 
     def tileUp(self):
         self.__board = self.__helper.tileUp(self.__board)
@@ -56,17 +94,16 @@ class Board:
         self.__board = self.__helper.tileDown(self.__board)
         print("moved tile down")
         self.update2dBoard()
+        self.calcDown()
 
     def tileRight(self):
         self.__board = self.__helper.tileRight(self.__board)
         print("moved tile right")
         self.update2dBoard()
+        self.calcRight()
 
     def tileLeft(self):
         self.__board = self.__helper.tileLeft(self.__board)
         print("moved tile left")
         self.update2dBoard()
-
-
-
-
+        self.calcLeft()

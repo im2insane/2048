@@ -1,18 +1,19 @@
 from Board import Board
+import pygame
 
 placeHolder = 0
-board = [placeHolder,9,2,placeHolder,
-placeHolder,5,placeHolder,2,
-3,placeHolder,6,placeHolder,
-1,placeHolder,4,placeHolder]
+board = [2,placeHolder,placeHolder,2,
+2,placeHolder,placeHolder,2,
+placeHolder,2,placeHolder,2,
+4,2,placeHolder,2]
 
 
 
 new = Board(board)
 new.listPrint()
 #new.tileLeft()
-#new.tileRight()
-new.tileUp()
+new.tileRight()
+#new.tileUp()
 #new.tileDown()
 
 

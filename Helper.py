@@ -36,6 +36,13 @@ class Helper:
             newLst.append(temp)
         return newLst
 
+    def TwoDToBoard(self,lst):
+        newLst = []
+        for i in range(0,len(lst)):
+            for j in range(0,len(lst)):
+                newLst.append(lst[i][j])
+        return lst
+
     def tileUp(self,lst):
         for i in range(0, len(lst)):
             if lst[i] == 0:
