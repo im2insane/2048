@@ -1,5 +1,6 @@
 class Helper:
-    def __init__(self):
+    def __init__(self,placeholer):
+        self.__holder = placeholer
         pass
 
     def swap(self,x,y,lst):
@@ -20,13 +21,13 @@ class Helper:
         for i in range(0, len(lst)):
             if i % 4 == 0:
                 print()
-            print(lst[i], end=" ")
+            print(lst[i], end="\t")
         print()
         print()
 
     def print2DLst(self,lst):
         for i in range(0,len(lst)):
-            print(*lst[i])
+            print(*lst[i],end="\t")
         print()
 
     def boardTo2D(self,lst):
@@ -35,6 +36,10 @@ class Helper:
             temp = lst[i:i+4]
             newLst.append(temp)
         return newLst
+
+    def printStatement(self,str):
+        #print(str)
+        pass
 
     def TwoDToBoard(self,lst):
         newLst = []
@@ -54,7 +59,7 @@ class Helper:
                     else:
                         pos += 4
         #TODO: add calculations when tile is moved up
-        print("Translation Done")
+        self.printStatement("tile up")
         return lst
 
     def tileDown(self,lst):
@@ -68,7 +73,7 @@ class Helper:
                     else:
                         pos -= 4
         # TODO: add calculations when tile is moved Down
-        print("Translation Done")
+        self.printStatement("tile down")
         return lst
 
     def tileRight(self,lst):
@@ -85,7 +90,7 @@ class Helper:
                         iterations -= 1
 
         # TODO: add calculations when tile is moved Right
-        print("Translation Done")
+        self.printStatement("tile right")
         return lst
 
     def tileLeft(self,lst):
@@ -102,5 +107,5 @@ class Helper:
                             pos += 1
             lst[i:i + 4] = temp
         # TODO: add calculations when tile is moved left
-        print("Translation Done")
+        self.printStatement("tile left")
         return lst

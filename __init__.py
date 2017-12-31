@@ -2,18 +2,31 @@ from Board import Board
 import pygame
 
 placeHolder = 0
-board = [2,placeHolder,placeHolder,2,
-2,placeHolder,placeHolder,2,
-placeHolder,2,placeHolder,2,
-4,2,placeHolder,2]
+board = [placeHolder,placeHolder,placeHolder,placeHolder,
+placeHolder,placeHolder,placeHolder,placeHolder,
+placeHolder,placeHolder,placeHolder,placeHolder,
+placeHolder,placeHolder,placeHolder,placeHolder]
 
 
 
 new = Board(board)
+new.createBoard()
 new.listPrint()
-#new.tileLeft()
-new.tileRight()
-#new.tileUp()
-#new.tileDown()
+userInput = input()
+
+while(userInput != 0):
+    if userInput == 'w':
+        new.tileUp()
+    elif userInput == 's':
+        new.tileDown()
+    elif userInput == 'a':
+        new.tileLeft()
+    elif userInput == 'd':
+        new.tileRight()
+    else:
+        print("invalid use WASD")
+
+    new.listPrint()
+    userInput = input()
 
 
