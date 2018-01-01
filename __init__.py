@@ -1,12 +1,11 @@
 from Board import Board
-import pygame
+
 
 placeHolder = 0
 board = [placeHolder,placeHolder,placeHolder,placeHolder,
 placeHolder,placeHolder,placeHolder,placeHolder,
 placeHolder,placeHolder,placeHolder,placeHolder,
 placeHolder,placeHolder,placeHolder,placeHolder]
-
 
 
 new = Board(board)
@@ -28,5 +27,3 @@ while(userInput != 0):
 
     new.listPrint()
     userInput = input()
-
-

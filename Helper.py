@@ -1,6 +1,5 @@
 class Helper:
-    def __init__(self,placeholer):
-        self.__holder = placeholer
+    def __init__(self):
         pass
 
     def swap(self,x,y,lst):
@@ -21,7 +20,10 @@ class Helper:
         for i in range(0, len(lst)):
             if i % 4 == 0:
                 print()
-            print(lst[i], end="\t")
+            if lst[i] == 0:
+                print("_",end="\t")
+            else:
+                print(lst[i], end="\t")
         print()
         print()
 

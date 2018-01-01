@@ -4,12 +4,11 @@ from Helper import Helper
 import random
 
 class Board:
-    def __init__(self,lst,placeholder):
+    def __init__(self,lst):
         self.__len = int(len(lst)**.5)
         self.__board = lst
         self.__board2d = np.array(lst).reshape(self.__len,self.__len)
-        self.__holder = placeholder
-        self.__helper = Helper(self.__holder)
+        self.__helper = Helper()
 
     def listPrint(self):
         self.__helper.printLst(self.__board)
@@ -21,7 +20,9 @@ class Board:
             if lst[i] == 0:
                 avaiable_slots.append(i)
         rand = random.randint(0,len(avaiable_slots)-1)
-        print(avaiable_slots,rand)
+
+        if len(avaiable_slots) == 0:
+            pass
 
         lst[avaiable_slots[rand]] = 2
         self.__board = lst
